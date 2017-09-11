@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>实例demo</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<div id="example">{{ a }}</div>
+</body>
+</html>
+<script type="text/javascript">
+	// // 我们的数据对象
+	// var data = { a : 1 }
+
+	// //该对象被加入到一个Vue实例中
+	// var vm = new Vue({
+	// 	data:data
+	// })
+
+	// console.log(vm.a === data.a);
+	// vm.a = 2
+	// console.log(data.a)
+	// data.a = 3
+	// console.log(vm.a)
+
+
+	// var data = { a: 1 }
+	// var vm = new Vue({
+	//   el: '#example',
+	//   data: data
+	// })
+	// console.log(vm.$data === data) // => true
+	// console.log(vm.$el === document.getElementById('example')) // => true
+	// // $watch 是一个实例方法
+	// vm.$watch('a', function (newValue, oldValue) {
+	//   // 这个回调将在 `vm.a` 改变后调用
+	//   console.log(newValue,oldValue)
+	// })
+
+	//生命周期方法
+	var vm = new Vue({
+		el:'#example',
+		data: {
+			a:1
+		},
+		beforeCreate:function(){
+			console.log('beforeCreate');
+		},
+		created:function() {
+			console.log('created')
+			console.log('a is '+ this.a);
+		},
+		beforeMount:function(){
+			console.log('beforeMount');
+		},
+
+		mounted: function() {
+			console.log('mounted');
+		},
+		beforeUpdate:function() {
+			console.log('beforeupdate');
+			debugger;
+		},
+		updated:function() {
+			console.log('updated');
+		},
+		beforeDestroy:function() {
+			console.log('beforeDestroy');
+		},
+		destroyed:function() {
+			console.log('destroyed');
+		}
+	})
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>模版语法</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h2>文本插值</h2>		
+		<span>Message : {{ msg }}</span>
+		<h2>文本插值2</h2>	
+		<span v-once>这个将不会改变: {{ msg }}</span>
+		<h2>原始HTML</h2>
+		<div v-html="rawHtml"></div>
+
+		<h2>特性-属性中绑定的值</h2>
+		<div v-bind:id="dynamicId">{{dynamicId}}</div>
+		<h2>布尔类型绑定</h2>
+		<button v-bind:disabled="isButtonDisabled">Button</button>
+		<h2>使用javascript表达式</h2>
+		{{ number + 1 }}
+		{{ ok ? 'YES' : 'NO' }}
+		{{ message.split('').reverse().join('') }}
+		<div v-bind:id="'list-' + id"></div>
+
+		<h2>指令->参数</h2>
+		<a v-bind:href="url">百度一下</a>
+		<h2>指令->监听 DOM 事件</h2>
+		<a v-on:click="doSomething">点击一下</a>
+
+		<h2>修饰符</h2>
+		<form v-on:submit.prevent="onSubmit">22</form>
+		
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			msg:1,
+			rawHtml:'<h1>hello</h1>',
+			dynamicId:1,
+			isButtonDisabled:true,
+			number:1,
+			ok:true,
+			message: '你好',
+			id:2,
+			seen:true,
+			url:'https://www.baidu.com',
+		},
+		methods:{
+			doSomething:function(){
+				console.log('do something')
+			},
+			onSubmit:function(){
+				console.log('do submit')
+			}
+		}
+	})
+</script>
