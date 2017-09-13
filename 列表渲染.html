@@ -1,0 +1,30 @@
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>列表渲染</title>
+            <script type="text/javascript" src="vue.js"></script>    
+        </head>
+        <body>
+            <div id="app">
+              <ul>
+                  <li v-for="(item , index) in items" v:key="item.id">
+                      {{ index }} -- {{ item.message }}
+                  </li>
+              </ul>
+            </div>
+        
+            <script type="text/javascript">
+                var app = new Vue({
+                    el:'#app',
+                    data:{
+                        items:[
+                            {message:"iphoneX"},
+                            {message:"iphone8"}
+                        ]
+                    }
+                })
+            </script>
+        </body>
+        </html>
