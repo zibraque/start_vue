@@ -83,5 +83,43 @@
                     }
                 })
             </script>
+
+            <h2>键值修饰符</h2>
+            <div id="app5">
+                <!-- 只有在 keyCode 是 13 时调用 vm.submit() -->
+                <input v-on:keyup.13="submit">
+                <!-- 同上 -->
+                <input v-on:keyup.enter="submit">
+                <!-- 缩写语法 -->
+                <input @keyup.enter="submit">
+                <input @keyup.tab="submit" value="tab">
+                <input @keyup.delete="submit" value="删除或退格">
+                <input @keyup.esc="submit" value="esc">
+                <input @keyup.space="submit" value="space">
+                <input @keyup.up="submit" value="up">
+                <input @keyup.down="submit" value="down">
+                <input @keyup.left="submit" value="left">
+                <input @keyup.right="submit" value="right">
+                <input @keyup.f1="submit" value="f1">
+                <input @keyup.alt.67="submit" value="alt+c">
+                <input @keyup.shift.67="submit" value="shift">
+
+        
+
+            </div>
+            <script type="text/javascript">
+                // 可以使用 v-on:keyup.f1
+                Vue.config.keyCodes.f1 = 112
+
+                var vm = new Vue({
+                    el:'#app5',
+                    methods:{
+                        submit:function(){
+                            console.log('触发表单提交')
+                        }
+                    }
+
+                })
+            </script>
         </body>
         </html>
